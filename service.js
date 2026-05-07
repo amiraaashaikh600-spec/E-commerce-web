@@ -14,7 +14,7 @@ const app = express();
 
 // Stripe setup
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
+console.log("STRIPE =", process.env.STRIPE_SECRET_KEY);
 // Import User Model
 const User = require('./models/User');
 
