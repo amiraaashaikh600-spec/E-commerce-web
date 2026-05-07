@@ -16,7 +16,7 @@ const app = express();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 console.log("STRIPE =", process.env.STRIPE_SECRET_KEY);
 // Import User Model
-const User = require('./models/User');
+const User = require('./models/user');
 
 /* ---------------- MIDDLEWARE ---------------- */
 
