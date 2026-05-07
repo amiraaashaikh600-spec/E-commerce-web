@@ -1,0 +1,601 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evo Perfume - Register</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#eee;
+}
+
+.container{
+  width:900px;
+  height:520px;
+  display:flex;
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.left{
+  width:50%;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.logo{
+  font-weight:bold;
+  margin-bottom:20px;
+  font-family: "DM Serif Text", serif;
+  font-weight: 600;
+}
+
+.left h1{
+  font-size:28px;
+  margin-bottom:5px;
+  font-family: "DM Serif Text", serif;
+  font-weight: 600;
+  color: #e07878;
+  text-shadow: 0 2px 8px rgba(184, 139, 139, 0.3);
+}
+
+.left p{font-size:13px;color:#777;margin-bottom:20px;}
+
+label{font-size:13px;margin-top:10px; display:block;}
+input{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  margin-top: 5px;
+}
+
+.password-box{position:relative;}
+.toggle{
+  position:absolute;
+  right:10px;
+  top:15px;
+  font-size:12px;
+  cursor:pointer;
+  background: white;
+  padding: 0 5px;
+}
+
+button{
+  padding:10px;
+  margin-top:15px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  width: 100%;
+}
+
+.login-btn{background: #e07878; color: #fff; font-weight: 600;}
+.google-btn{background:#fff;border:1px solid #ccc;}
+
+.signup{text-align:center;font-size:12px;margin-top:10px;}
+
+/* RIGHT SIDE VIDEO */
+.right{
+  width:50%;
+  position:relative;
+}
+
+.right video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.3);
+}
+
+.text{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  color:#fff;
+}
+.signup{
+  text-align:center;
+  font-size:13px;
+  margin-top:15px;
+  color: #777;
+}
+.signup a{
+  font-size:13px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: none;
+}
+
+.success-message {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <div class="logo">EVO PERFUME</div>
+    <h1>Create Account</h1>
+    <p>Join the luxury fragrance experience</p>
+
+    <div id="errorMsg" class="error-message"></div>
+    <div id="successMsg" class="success-message"></div>
+<form action="/register" method="post">
+    <label>Full Name</label>
+    <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label>Password</label>
+    <div class="password-box">
+      <input type="password" id="password" placeholder="Create a password">
+      <span class="toggle" onclick="togglePass()">Show</span>
+    </div>
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+
+    <button class="login-btn" onclick="handleRegister()">Sign Up</button>
+
+    <div class="signup">Already have an account? <a href="/login">Log in</a></div>
+  </div>
+</form>
+  <div class="right">
+    <video autoplay muted loop>
+      <source src="assets/videos/login-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="text">
+      <h3>Evo Perfume</h3>
+      <p>Feel the luxury</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePass(){
+  let p = document.getElementById('password');
+  let btn = document.querySelector('.toggle');
+  if(p.type === 'password'){
+    p.type = 'text';
+    btn.textContent = 'Hide';
+  } else {
+    p.type = 'password';
+    btn.textContent = 'Show';
+  }
+}
+
+async function handleRegister() {
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  // Clear previous messages
+  document.getElementById('errorMsg').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'none';
+
+  // Validation
+  if (!name || !email || !password || !confirmPassword) {
+    showError('Please fill in all fields');
+    return;
+  }
+
+  if (password.length < 6) {
+    showError('Password must be at least 6 characters');
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    showError('Passwords do not match');
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name: name,
+        email: email, 
+        password: password,
+        confirmPassword: confirmPassword
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      showSuccess('Registration successful! Redirecting...');
+      setTimeout(() => {
+        window.location.href = data.redirect;
+      }, 1500);
+    } else {
+      showError(data.message);
+    }
+  } catch (error) {
+    console.error('Registration error:', error);
+    showError('Connection error. Please try again.');
+  }
+}
+
+function showError(message) {
+  const errorDiv = document.getElementById('errorMsg');
+  errorDiv.textContent = message;
+  errorDiv.style.display = 'block';
+  setTimeout(() => {
+    errorDiv.style.display = 'none';
+  }, 3000);
+}
+
+function showSuccess(message) {
+  const successDiv = document.getElementById('successMsg');
+  successDiv.textContent = message;
+  successDiv.style.display = 'block';
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evo Perfume - Register</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#eee;
+}
+
+.container{
+  width:900px;
+  height:520px;
+  display:flex;
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.left{
+  width:50%;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.logo{
+  font-weight:bold;
+  margin-bottom:20px;
+  font-family: "DM Serif Text", serif;
+  font-weight: 600;
+}
+
+.left h1{
+  font-size:28px;
+  margin-bottom:5px;
+  font-family: "DM Serif Text", serif;
+  font-weight: 600;
+  color: #e07878;
+  text-shadow: 0 2px 8px rgba(184, 139, 139, 0.3);
+}
+
+.left p{font-size:13px;color:#777;margin-bottom:20px;}
+
+label{font-size:13px;margin-top:10px; display:block;}
+input{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  margin-top: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus{
+  outline: none;
+  border-color: #e07878;
+}
+
+.password-box{position:relative;}
+.toggle{
+  position:absolute;
+  right:10px;
+  top:15px;
+  font-size:12px;
+  cursor:pointer;
+  background: white;
+  padding: 0 5px;
+  user-select: none;
+}
+
+button{
+  padding:10px;
+  margin-top:15px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+button:hover{
+  transform: translateY(-1px);
+}
+
+.login-btn{background: #e07878; color: #fff; font-weight: 600;}
+
+/* RIGHT SIDE VIDEO */
+.right{
+  width:50%;
+  position:relative;
+}
+
+.right video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.3);
+}
+
+.text{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  color:#fff;
+}
+.signup{
+  text-align:center;
+  font-size:13px;
+  margin-top:15px;
+  color: #777;
+}
+.signup a{
+  font-size:13px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup a:hover{
+  text-decoration: underline;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: none;
+}
+
+.success-message {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <div class="logo">EVO PERFUME</div>
+    <h1>Create Account</h1>
+    <p>Join the luxury fragrance experience</p>
+
+    <div id="errorMsg" class="error-message"></div>
+    <div id="successMsg" class="success-message"></div>
+    
+    <!-- FIXED FORM - Now properly wrapped around all inputs -->
+    <form id="registerForm" action="/register" method="POST" onsubmit="return validateAndSubmit(event)">
+      <label>Full Name</label>
+      <input type="text" id="fullName" name="name" placeholder="Enter your full name" required>
+
+      <label>Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <div class="password-box">
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+        <span class="toggle" onclick="togglePass()">Show</span>
+      </div>
+
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+      <button type="submit" class="login-btn">Sign Up</button>
+    </form>
+
+    <div class="signup">Already have an account? <a href="/login">Log in</a></div>
+  </div>
+
+  <div class="right">
+    <video autoplay muted loop>
+      <source src="/assets/videos/login-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="text">
+      <h3>Evo Perfume</h3>
+      <p>Feel the luxury</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePass(){
+  let p = document.getElementById('password');
+  let toggleBtn = document.querySelector('.toggle');
+  if(p.type === 'password'){
+    p.type = 'text';
+    toggleBtn.textContent = 'Hide';
+  } else {
+    p.type = 'password';
+    toggleBtn.textContent = 'Show';
+  }
+}
+
+async function validateAndSubmit(event) {
+  // Prevent default form submission
+  event.preventDefault();
+  
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  // Clear previous messages
+  document.getElementById('errorMsg').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'none';
+
+  // Validation
+  if (!name || !email || !password || !confirmPassword) {
+    showError('Please fill in all fields');
+    return false;
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showError('Please enter a valid email address');
+    return false;
+  }
+
+  if (password.length < 6) {
+    showError('Password must be at least 6 characters');
+    return false;
+  }
+
+  if (password !== confirmPassword) {
+    showError('Passwords do not match');
+    return false;
+  }
+
+  // Disable submit button
+  const submitBtn = document.querySelector('.login-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Signing Up...';
+
+  try {
+    // Try API submission first for better UX
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name: name,
+        email: email, 
+        password: password,
+        confirmPassword: confirmPassword
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      showSuccess('Registration successful! Redirecting...');
+      setTimeout(() => {
+        window.location.href = data.redirect;
+      }, 1500);
+    } else {
+      showError(data.message);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign Up';
+    }
+  } catch (error) {
+    // Fallback to traditional form submission
+    console.log('Falling back to traditional form submission');
+    document.getElementById('registerForm').submit();
+  }
+  
+  return false;
+}
+
+function showError(message) {
+  const errorDiv = document.getElementById('errorMsg');
+  errorDiv.textContent = message;
+  errorDiv.style.display = 'block';
+  setTimeout(() => {
+    errorDiv.style.display = 'none';
+  }, 5000);
+}
+
+function showSuccess(message) {
+  const successDiv = document.getElementById('successMsg');
+  successDiv.textContent = message;
+  successDiv.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

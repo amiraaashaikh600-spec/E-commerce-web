@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVO - Luxury Perfumes</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <!-- icon link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="full.css">
+</head>
+<body>
+    <header>
+        <nav class="nav nav-fluid">
+            <h2 class="h2 h2-fluid">Evo</h2>
+            <ul>
+                <li><a href="#hero" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><a href="#about-us" style="text-decoration: none; color: inherit;">About us</a></li>
+                <li><a href="#collection" style="text-decoration: none; color: inherit;">Collection</a></li>
+                <li><a href="#contact" style="text-decoration: none; color: inherit;">Contact us</a></li>
+            </ul>
+            <div class="auth-status">
+                <span class="user-name" id="userNameDisplay">Welcome, Guest</span>
+                <button type="button" class="btn1" id="logoutBtn">Log out</button>
+                <div class="cart-badge">
+                    <button class="cart-icon-btn" id="cartBtn">🛒</button>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- hero section -->
+        <section id="hero">
+            <div class="section section-fluid mt-3">
+                <div class="container container-fluid">
+                    <div class="row row-fluid">
+                        <div class="col col-fluid text-start mt-5">
+                            <h1 class="h1-hero-w h1-fluid">welcome to</h1>
+                            <h1 class="h1-hero-e h1-fluid text-white">Evo Perfume</h1>
+                            <p class="p-hero p-fluid">Explore a world of luxury perfumes created to express elegance and confidence. Each fragrance is carefully</p>
+                            <p class="p-hero2 p-fluid">crafted to complement your style and personality.</p>
+                            <button type="button" class="btn2 btn2-light ps-5 pe-5 pt-2 pb-2" id="orderNowBtn">Order Now</button>
+                            <button type="button" class="btn-2 ps-5 pe-5 pt-2 pb-2" id="visitSiteBtn">Visit site</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About us -->
+    <section id="about-us">
+        <div class="section-about section-about-fluid mt-5 mb-5 bg-none">
+            <div class="container container-fluid">
+                <div class="row row-fluid">
+                    <div class="col col-fluid">
+                        <img class="img-about" src="https://static.vecteezy.com/system/resources/previews/028/281/149/non_2x/perfume-bottle-with-lilac-flowers-photo.jpg" alt="About Us Image">
+                        <video class="video-about" autoplay loop muted src="assets/videos/about-botl.mp4"></video>   
+                    </div>
+                    <div class="col col-fluid text-start mt-5">
+                        <h2 class="h2-about h2-fluid mt-5 text-dark">About Us</h2>
+                        <h5 class="our-story-title mt-4">Our Story</h5>
+                        <p class="p-about p-fluid text-dark ms-3 mt-4 text-secondary">At Evo, we are passionate about fashion and committed to providing our customers with the latest trends and styles. Our mission is to help you express your unique personality through clothing that is both stylish and comfortable. With a focus on quality and customer satisfaction, we strive to create an exceptional shopping experience for all our clients.</p>
+                        <button type="button" class="btn3 ps-5 pe-5 pt-2 pb-2 mt-3">Learn More</button>
+                        <img class="for-respon" src="https://img.pikbest.com/photo/20250104/luxurious-purple-perfume-bottle-with-pearls-and-flowers_11338632.jpg!w700wp" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- collection -->
+    <section id="collection">
+        <div class="section-collection section-collection-fluid mt-5 mb-5 bg-none">
+            <div class="container container-fluid">
+                <div class="row-cl row-fluid">
+                    <div class="col col-fluid text-start mt-5">
+                        <h1 class="h1-cl h1-fluid">NEW PERFUME</h1>
+                        <h2 class="h2-cl h2-fluid">collection</h2>
+                        <p class="p-col p-fluid">Explore our exclusive collection of fashion-forward clothing and accessories. <br> From elegant dresses to casual wear, we have something for every occasion.</p>
+                    </div>
+                    <div class="col-pr col-fluid">
+                        <img class="main main-fluid" src="https://static.vecteezy.com/system/resources/previews/057/129/559/non_2x/perfume-bottle-with-smoke-on-dark-background-luxury-fragrance-luxury-perfume-bottle-photo.jpeg" alt="">
+                        <img class="main2 main-fluid" src="https://thumbs.dreamstime.com/b/luxurious-perfume-bottle-smoky-fragrance-effect-sophisticated-golden-cap-sits-against-dark-green-background-aromatic-mist-346712399.jpg" alt="">
+                    </div>
+                </div>
+                
+                <div class="row-imgs row-fluid mt-4">
+                    <div class="col-img col-fluid" data-product='{"name":"Floral Elegance","price":129.99,"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV3AhvzsTPKsCu7A8yCypc4ll-EaTT2u8-M0O4MBepRSyanVrGgxRfDPCRu0BSPXWPcqM&usqp=CAU"}'>
+                        <img class="img-collection" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV3AhvzsTPKsCu7A8yCypc4ll-EaTT2u8-M0O4MBepRSyanVrGgxRfDPCRu0BSPXWPcqM&usqp=CAU" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="assets/videos/flower-gold.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl">Floral Elegance</h5>
+                            <p class="p-cl">A delicate blend of floral notes that captures essence of spring. <br> Price: $129.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Citrus Fresh","price":89.99,"image":"assets/images/blue-perfume.jpg"}'>
+                        <img class="img-collection" src="assets/images/blue-perfume.jpg" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/blue-botl.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl">Citrus Fresh</h5>
+                            <p class="p-cl">A refreshing mix of citrus scents that invigorates the senses. <br> Price: $89.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Woody Mystique","price":119.99,"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFAi6xnVatepPUgvE-9Dm4omweeoUY8a_4KNwt1RWhM6chF2RTa9vkpajKljs_Me4ZzvM&usqp=CAU"}'>
+                        <img class="img-collection" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFAi6xnVatepPUgvE-9Dm4omweeoUY8a_4KNwt1RWhM6chF2RTa9vkpajKljs_Me4ZzvM&usqp=CAU" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/gold-botl.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl">Woody Mystique</h5>
+                            <p class="p-cl">A warm and earthy fragrance that exudes confidence and allure. <br> Price: $119.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Vanilla Dream","price":149.99,"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Hw3LswPzf3L8ti8PaZDzAcrbJ-zDmdJmYrJ61xoc-qvJiuUP06hYYDlfGgSFVhRE0HA&usqp=CAU"}'>
+                        <img class="img-collection" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Hw3LswPzf3L8ti8PaZDzAcrbJ-zDmdJmYrJ61xoc-qvJiuUP06hYYDlfGgSFVhRE0HA&usqp=CAU" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/pink-botl.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl">Vanilla Dream</h5>
+                            <p class="p-cl">A sweet and comforting aroma that evokes feelings of warmth. <br> Price: $149.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row-imgs row-fluid mt-2">
+                    <div class="col-img col-fluid" data-product='{"name":"Lavender Bliss","price":99.99,"image":"assets/images/lavander-perfume.jpg"}'>
+                        <img class="img-collection2" src="assets/images/lavander-perfume.jpg" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/purple-bottle.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl-2 ms-5">Lavender Bliss</h5>
+                            <p class="p-cl">A calming and soothing fragrance with hints of lavender. <br> Price: $99.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Carousel Light","price":109.99,"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDUNY2XJA-pCHOlkYJ3vV6j_ueunwhQCg9uXbD7fO9WNcFKyntHJJUZgAHcDjnk0SL6ts&usqp=CAU"}'>
+                        <img class="img-collection2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDUNY2XJA-pCHOlkYJ3vV6j_ueunwhQCg9uXbD7fO9WNcFKyntHJJUZgAHcDjnk0SL6ts&usqp=CAU" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/smoky-botl.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl-2 ms-5">Carousel Light</h5>
+                            <p class="p-cl">A bright & airy fragrance with notes of citrus & floral elements. <br> Price: $109.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Rose Petals","price":139.99,"image":"https://thumbs.dreamstime.com/b/bottle-perfume-beautiful-flowers-light-dark-background-realistic-style-perfume-glass-bottle-pink-background-290041616.jpg"}'>
+                        <img class="img-collection2" src="https://thumbs.dreamstime.com/b/bottle-perfume-beautiful-flowers-light-dark-background-realistic-style-perfume-glass-bottle-pink-background-290041616.jpg" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/black-botl.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl-2">Rose Petals</h5>
+                            <p class="p-cl">A romantic and floral fragrance with notes of rose and jasmine. <br> Price: $139.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-img col-fluid" data-product='{"name":"Soft Musk","price":159.99,"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfF5QsToBy2M2iPhrBxnlCyCGk1AIwUhiPl8WzwO0BLW49UdKNGwmwEAB-aK-8he8cChE&usqp=CAU"}'>
+                        <img class="img-collection2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfF5QsToBy2M2iPhrBxnlCyCGk1AIwUhiPl8WzwO0BLW49UdKNGwmwEAB-aK-8he8cChE&usqp=CAU" alt="Collection Image">
+                        <video class="video-collection" autoplay loop muted src="./assets/videos/pink-2.mp4"></video>
+                        <div class="text">
+                            <h5 class="h5-cl-2">Soft Musk</h5>
+                            <p class="p-cl">A gentle and sensual fragrance with soft musk notes. <br> Price: $159.99</p>
+                        </div>
+                        <div class="button-crd">
+                            <button class="btn-by buy-now-btn">Buy Now</button>
+                            <button class="btn-add add-to-cart-btn">🛒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- carousel -->
+    <section id="food-slider">
+        <div class="carasol-text">
+            <h1 class="h1-cara">Luxury Variety</h1>
+            <p class="p-cara"></p>
+        </div>
+        <div class="food-slider-wrapper">
+            <button class="slider-btn prev">❮</button>
+            <div class="food-slider">
+                <div class="food-card"><img src="assets/images/luxury-1.webp" alt="Luxury 1"></div>
+                <div class="food-card"><img src="assets/images/luxury-2.webp" alt="Luxury 2"></div>
+                <div class="food-card"><img src="assets/images/luxury-5.jpg" alt="Luxury 3"></div>
+                <div class="food-card"><img src="assets/images/luxury-4.jpg" alt="Luxury 4"></div>
+                <div class="food-card"><img src="assets/images/luxury-3.jpg" alt="Luxury 5"></div>
+                <div class="food-card"><img src="assets/images/luxury-6.jpg" alt="Luxury 6"></div>
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+    </section>
+
+    <!-- contact section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-left">
+                <p class="small-heading">Get in Touch</p>
+                <h2 class="contact-h2">Let's Chat, Reach Out to Us</h2>
+                <p class="description">Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours.</p>
+                
+                <form id="contactForm">
+                    <div class="input-row">
+                        <input type="text" placeholder="First name" required>
+                        <input type="text" placeholder="Last name" required>
+                    </div>
+                    <input type="email" placeholder="Email address" required>
+                    <textarea placeholder="Leave us a message" required></textarea>
+                    <label class="checkbox">
+                        <input type="checkbox" required>
+                        I agree to our friendly privacy policy
+                    </label>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-right">
+                <div class="image-box">
+                    <img src="assets/images/white-lux-perfume.jpg" alt="contact">
+                </div>
+                <div class="contact-info">
+                    <p><strong>Email</strong><br>techteam@kawruh.com</p>
+                    <p><strong>Phone</strong><br>(0252) 8324 9231</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <h2>E-Shop</h2>
+                <h3 class="fotr">Welcome to Evo Perfume</h3>
+                <p>Best online store for quality products and fast delivery. <br> Thank you for choosing us!</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="#hero">Home</a>
+                <a href="#collection">Shop</a>
+                <a href="#about-us">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="icons">
+                    <a href="#"><i class="fa fa-facebook"> Facebook</i></a>
+                    <a href="#"><i class="fa fa-instagram"> Instagram</i></a>
+                    <a href="#"><i class="fa fa-twitter"> Twitter</i></a>
+                    <a href="#"><i class="fa fa-linkedin"> LinkedIn</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Evo Perfume. All rights reserved.
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="full.js"></script>
+
+<script>
+// Additional inline script for immediate fixes
+(function() {
+    // Fix for any missing elements
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount && !cartCount.style.display) {
+        cartCount.style.display = 'none';
+    }
+    
+    // Ensure logout button shows for logged-in users
+    fetch('/api/user', { credentials: 'include' })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success && data.user) {
+                const userNameDisplay = document.getElementById('userNameDisplay');
+                if (userNameDisplay) {
+                    userNameDisplay.textContent = `Welcome, ${data.user.fullName.split(' ')[0]}`;
+                }
+            }
+        })
+        .catch(err => console.error('Error:', err));
+})();
+</script>
+</body>
+</html>
